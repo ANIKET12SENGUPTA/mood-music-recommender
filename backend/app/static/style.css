@@ -1,0 +1,13 @@
+.song{
+    border:1px solid #ddd;
+    padding:10px;
+    margin:10px;
+    border-radius:10px;
+    width:200px;
+    display:inline-block;
+    text-align:center;
+}
+
+.song img{
+    border-radius:10px;
+}

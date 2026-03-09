@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mood Music Recommender</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>Mood Music Recommender</h1>
+
+<p>Describe how you feel and get music recommendations.</p>
+
+<textarea id="text" placeholder="Describe your mood..." rows="4" cols="50"></textarea>
+
+<br><br>
+
+<button onclick="getMusic()">Recommend</button>
+
+<h2 id="emotion"></h2>
+
+<ul id="results"></ul>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
