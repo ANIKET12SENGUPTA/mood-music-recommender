@@ -6,3 +6,6 @@
 
 # Ignore environment folders
 *.env
+
+*.cache
+*.pyc
