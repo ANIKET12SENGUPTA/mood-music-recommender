@@ -1,7 +1,14 @@
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+_model = None
+
+
+def get_model():
+    global _model
+    if _model is None:
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+    return _model
 
 
 def rank_by_embedding(user_text, tracks):
@@ -9,12 +16,13 @@ def rank_by_embedding(user_text, tracks):
     if not tracks:
         return []
 
+    model = get_model()
+
     user_vec = model.encode([user_text])
 
     song_texts = []
 
     for track in tracks:
-
         name = track.get("name", "")
 
         artist = "Unknown"
@@ -27,10 +35,6 @@ def rank_by_embedding(user_text, tracks):
 
     scores = cosine_similarity(user_vec, song_vecs)[0]
 
-    ranked = sorted(
-        zip(tracks, scores),
-        key=lambda x: x[1],
-        reverse=True
-    )
+    ranked = sorted(zip(tracks, scores), key=lambda x: x[1], reverse=True)
 
     return [r[0] for r in ranked]

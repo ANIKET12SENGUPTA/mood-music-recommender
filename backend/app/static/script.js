@@ -1,14 +1,16 @@
-async function getRecommendations() {
-    const moodInput = document.getElementById("moodInput");
+async function getMusic() {
+    const moodInput = document.getElementById("text");
     const mood = moodInput.value.trim();
     const resultsDiv = document.getElementById("results");
+    const emotionDiv = document.getElementById("emotion");
 
     if (!mood) {
         alert("Please enter a mood");
         return;
     }
 
-    resultsDiv.innerHTML = "<p>Loading...</p>";
+    resultsDiv.innerHTML = "<p>Loading recommendations...</p>";
+    emotionDiv.innerHTML = "";
 
     try {
         const response = await fetch("/recommend", {
@@ -20,7 +22,9 @@ async function getRecommendations() {
         });
 
         const data = await response.json();
+
         resultsDiv.innerHTML = "";
+        emotionDiv.innerHTML = "Detected Emotion: " + (data.emotion || "unknown");
 
         const recommendations = data.recommendations || [];
 
@@ -30,13 +34,18 @@ async function getRecommendations() {
         }
 
         recommendations.forEach(track => {
-            const trackDiv = document.createElement("div");
-            trackDiv.innerHTML = `
-                <p><strong>${track.name}</strong> - ${track.artist}</p>
-                <a href="${track.url}" target="_blank">Open in Spotify</a>
+            const item = document.createElement("div");
+            item.className = "song";
+
+            item.innerHTML = `
+                <h3>${track.name}</h3>
+                <p>${track.artist}</p>
+                <a href="${track.url}" target="_blank">🎧 Open in Spotify</a>
             `;
-            resultsDiv.appendChild(trackDiv);
+
+            resultsDiv.appendChild(item);
         });
+
     } catch (error) {
         resultsDiv.innerHTML = "<p>Error getting recommendations.</p>";
         console.error(error);

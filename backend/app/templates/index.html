@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Mood Music Recommender</title>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>AI Mood Music Recommender</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
 
-<h1>Mood Music Recommender</h1>
+    <div class="main-box">
+        <h1>🎵 Mood Music Recommender</h1>
+        <p class="tagline">Describe your mood and get Spotify song suggestions instantly</p>
 
-<p>Describe how you feel and get music recommendations.</p>
+        <textarea id="text" placeholder="How are you feeling today?"></textarea>
 
-<textarea id="text" placeholder="Describe your mood..." rows="4" cols="50"></textarea>
+        <button onclick="getMusic()">Recommend Music</button>
 
-<br><br>
+        <h2 id="emotion"></h2>
 
-<button onclick="getMusic()">Recommend</button>
+        <div id="results"></div>
+    </div>
 
-<h2 id="emotion"></h2>
-
-<ul id="results"></ul>
-
-<script src="/static/script.js"></script>
-
+    <script src="/static/script.js"></script>
 </body>
-
 </html>

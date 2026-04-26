@@ -17,7 +17,7 @@ ALLOWED_GENRES = [
 ]
 
 
-def get_candidates(genres, valence, energy):
+def get_candidates(genres):
     filtered = [g for g in genres if g in ALLOWED_GENRES]
 
     if not filtered:
