@@ -1,11 +1,37 @@
 # VSCode settings
 .vscode/
 
-# Python cache
+# Python cache and generated artifacts
 **/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.coverage
+**/htmlcov/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/*.log
 
-# Ignore environment folders
-*.env
+# Local virtual envs
+.venv/
+venv/
+env/
 
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Project cache and generated files
+.cache
+**/.cache
 *.cache
-*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build and test output
+.coverage
+coverage.xml
+pytest_cache/

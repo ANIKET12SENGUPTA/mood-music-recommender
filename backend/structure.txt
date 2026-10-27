@@ -1,24 +1,28 @@
 mood-music-recommender/
-└── backend/
-    ├── app/
-    │   ├── __init__.py
-    │   ├── main.py
-    │   ├── config.py
-    │   ├── mood_engine.py
-    │   ├── genre_engine.py
-    │   ├── spotify_client.py
-    │   ├── recommender.py
-    │   ├── ranking.py
-    │   ├── collaborative.py
-    │   ├── templates/
-    │   │   └── index.html
-    │   └── static/
-    │       ├── script.js
-    │       └── style.css
-    │
-    ├── data/
-    │   └── user_history.json
-    │
-    ├── requirements.txt
-    ├── .gitignore
-    └── .env.example
+├── README.md
+├── .gitignore
+├── backend/
+│   ├── .env
+│   ├── .env.example
+│   ├── requirements.txt
+│   ├── run_server.py
+│   ├── structure.txt
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   ├── mood_engine.py
+│   │   ├── genre_engine.py
+│   │   ├── spotify_client.py
+│   │   ├── recommender.py
+│   │   ├── ranking.py
+│   │   ├── collaborative.py
+│   │   ├── templates/
+│   │   │   └── index.html
+│   │   └── static/
+│   │       ├── script.js
+│   │       └── style.css
+│   ├── data/
+│   │   └── user_history.json
+│   └── tests/
+│       └── test_recommender.py
