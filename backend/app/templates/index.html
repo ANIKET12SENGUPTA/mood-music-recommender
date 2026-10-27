@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Mood Music Recommender</title>
+    <title>VibeVault</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">♫</div>
+                <div>
+                    <div class="brand-name">VibeVault</div>
+                    <div class="brand-subtitle">Smart mood-based music</div>
+                </div>
+            </div>
+            <button id="spotify-login" class="secondary">Login with Spotify</button>
+        </header>
 
-    <div class="main-box">
-        <h1>🎵 Mood Music Recommender</h1>
-        <p class="tagline">Describe your mood and get Spotify song suggestions instantly</p>
+        <div class="main-box">
+            <div class="hero">
+                <span class="chip">AI Music Match</span>
+                <h1>Find the soundtrack to your mood.</h1>
+                <p class="tagline">Tell VibeVault how you feel, what you’re doing, or what vibe you want — and it will suggest songs that actually fit.</p>
+            </div>
 
-        <textarea id="text" placeholder="How are you feeling today?"></textarea>
+            <p id="auth-status" class="auth-status">Checking Spotify login...</p>
 
-        <button onclick="getMusic()">Recommend Music</button>
+            <textarea id="text" placeholder="Example: I’m stressed after a long day, want something calm and cozy, maybe rainy-night energy..."></textarea>
 
-        <h2 id="emotion"></h2>
+            <div class="toolbar">
+                <button onclick="getMusic()">Recommend Music</button>
+                <button id="save-playlist" class="secondary ghost" onclick="savePlaylist()">Save to Spotify Playlist</button>
+            </div>
 
-        <div id="results"></div>
+            <h2 id="emotion"></h2>
+            <div id="results"></div>
+        </div>
     </div>
 
     <script src="/static/script.js"></script>
